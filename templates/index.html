@@ -1,19 +1,24 @@
+<!DOCTYPE html>
 <head>
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
 
-<body>
-    <div class="App">
-        <header class="App-header">
-            <img src="{{ url_for('static', filename='Octocat.png') }}" class="App-logo" alt="logo" />
-            <p>
-                GitHub Codespaces <span class="heart">♥️</span> Flask
-            </p>
-            <p class="small">
-                Edit <code>templates/index.html</code> and refresh to see your changes!
-            </p>
-        </header>
-    </div>
-</body>
-
-</html>
+  <html>
+    <head>
+      <title>Are you safe</title>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+      <header>
+        <h1>Are you safe</h1>
+        <button id="signin">Sign in/register</button>
+      </header>
+      <main>
+        <div id="buttons">
+          <button id="join">Join family</button>
+          <button id="create">Create family</button>
+        </div>
+      </main>
+    </body>
+  </html>
+</head>
