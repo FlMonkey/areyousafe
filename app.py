@@ -20,10 +20,18 @@ def index():
         return redirect(url_for('signin'))
 
 
-@app.route('/join')
+@app.route('/join', methods=['GET', 'POST'])
 def join():
     if 'is_loggedin' in session:
-        return render_template('join.html')
+        if request.method == 'POST':
+            familyID = request.form['family-join-code']
+            username = session['username']
+            if db.join_family(familyID, username):
+                return redirect(url_for('index'))
+            else:
+                return redirect(url_for('join'))
+        else:
+            return render_template('join.html')
     else:
         return redirect(url_for('signin'))
 

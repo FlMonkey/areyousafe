@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+from bson.objectid import ObjectId
 import hashlib
 
 passwordhash = hashlib.sha256()
@@ -44,5 +45,11 @@ class Database:
         return True
     
     def join_family(self, familyID, username):
-        if family.find_one({'_id': familyID}):
-            family.update_one({'_id': familyID}, {'$push': {'members': username}})
+        try:
+            if family.find_one({'_id': ObjectId(familyID)}):
+                family.update_one({'_id': ObjectId(familyID)}, {'$push': {'members': username}})
+                return True
+            else:
+                return False
+        except:
+            return False
