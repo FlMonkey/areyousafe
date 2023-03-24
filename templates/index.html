@@ -6,7 +6,11 @@
   <html>
     <head>
       <title>Are you safe</title>
-      <link rel="stylesheet" type="text/css" href="style.css" />
+      <link
+        rel="stylesheet"
+        type="text/css"
+        href="{{ url_for('static', filename='style.css') }}"
+      />
     </head>
     <body>
       <header>
@@ -15,8 +19,12 @@
       </header>
       <main>
         <div id="buttons">
-          <button id="join">Join family</button>
-          <button id="create">Create family</button>
+          <a href="{{ url_for('join') }}"
+            ><button id="join">Join family</button></a
+          >
+          <a href="{{ url_for('create') }}"
+            ><button id="create">Create family</button></a
+          >
         </div>
       </main>
     </body>
