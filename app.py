@@ -1,5 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request, session
 from src.database.database import Database
+import hashlib
+
+passwordhash = hashlib.sha256()
 
 
 db = Database()
@@ -35,12 +38,14 @@ def create():
 
 @app.route('/signin', methods=['GET', 'POST'])
 def signin():
+    global passwordhash
     if 'is_loggedin' in session:
         return redirect(url_for('index'))
     else:
         if request.method == 'POST':
             username = request.form['username']
             password = request.form['password']
+            username = username.lower()
             if db.login(username, password):
                 session['username'] = username
                 session['is_loggedin'] = True
@@ -52,14 +57,16 @@ def signin():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    global passwordhash
     if 'is_loggedin' in session:
         return redirect(url_for('index'))
     else:
         if request.method == 'POST':
             username = request.form['username']
             password = request.form['password']
+            username = username.lower()
             if db.register(username, password, None):
-                return redirect(url_for('index'))
+                return redirect(url_for('signin'))
             else:
                 return redirect(url_for('register'))
         return render_template('register.html')
