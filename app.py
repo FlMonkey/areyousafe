@@ -28,9 +28,17 @@ def join():
         return redirect(url_for('signin'))
 
 
-@app.route('/create')
+@app.route('/create', methods=['GET', 'POST'])
 def create():
     if 'is_loggedin' in session:
+        if request.method == 'POST':
+            familyManager = session['username']
+            familyName = request.form['family-name']
+            if db.create_family(familyManager, familyName):
+                return redirect(url_for('index'))
+            else:
+                return redirect(url_for('create'))
+
         return render_template('create.html')
     else:
         return redirect(url_for('signin'))

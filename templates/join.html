@@ -11,8 +11,8 @@
   <body>
     <header>
       <h1>Join family</h1>
-      <a href="{{ url_for('signin') }}"
-        ><button id="signin">Sign in/register</button></a
+      <a href="{{ url_for('signout') }}"
+        ><button id="signin">Sign Out</button></a
       >
       <a href="{{ url_for('index') }}" class="home-button">
         <img
@@ -23,7 +23,12 @@
       </a>
     </header>
     <main>
-      <p>Welcome to the join family page.</p>
+      <main>
+        <form action="{{ url_for('join') }}" method="POST">
+          <label for="family-name">Family Join Code</label>
+          <input type="text" name="family-join-code" id="family-join-code" />
+          <button type="submit">Create</button>
+        </form>
     </main>
   </body>
 </html>

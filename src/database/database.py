@@ -35,8 +35,14 @@ class Database:
             passwordtocheck.encode('utf-8')).hexdigest()
 
         if users.find_one({'username': username}):
-            print('user found')
-            print(user['password'])
             if user['password'] == hashedPass:
-                print('password correct')
                 return True
+
+    def create_family(self, familyManager, familyName):
+        familyManager = self.get_user(familyManager)['username']
+        family.insert_one({'familyManager': familyManager, 'members': [], 'familyName': familyName})
+        return True
+    
+    def join_family(self, familyID, username):
+        if family.find_one({'_id': familyID}):
+            family.update_one({'_id': familyID}, {'$push': {'members': username}})

@@ -10,8 +10,8 @@
   <body>
     <header>
       <h1>Create family</h1>
-      <a href="{{ url_for('signin') }}"
-        ><button id="signin">Sign in/register</button></a
+      <a href="{{ url_for('signout') }}"
+        ><button id="signin">Sign Out</button></a
       >
       <a href="{{ url_for('index') }}" class="home-button">
         <img
@@ -22,7 +22,10 @@
       </a>
     </header>
     <main>
-      <p>Welcome to the create family page.</p>
-    </main>
+      <form action="{{ url_for('create') }}" method="POST">
+        <label for="family-name">Family Name</label>
+        <input type="text" name="family-name" id="family-name" />
+        <button type="submit">Create</button>
+      </form>
   </body>
 </html>
