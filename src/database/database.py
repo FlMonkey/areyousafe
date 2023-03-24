@@ -18,8 +18,15 @@ class Database:
     def get_user(self, username):
         return users.find_one({'username': username})
     
-
-
-
-db = Database()
-print(db.get_user('test'))
+    def register(self, username, password, status):
+        if users.find_one({'username': username}):
+            return False
+        else:
+            users.insert_one({'username': username, 'password': password, 'status': status})
+            return True
+        
+    def login(self, username, password):
+        if users.find_one({'username': username, 'password': password}):
+            return True
+        else:
+            return False
