@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     <title>{{ title }}</title>
@@ -7,13 +6,9 @@
       href="{{ url_for('static', filename='main.css') }}"
     />
   </head>
-  <title>Join family</title>
   <body>
     <header>
-      <h1>Join family</h1>
-      <a href="{{ url_for('signin') }}"
-        ><button id="signin">Sign in/register</button></a
-      >
+      <h1>Sign in</h1>
       <a href="{{ url_for('index') }}" class="home-button">
         <img
           src="{{ url_for('static', filename='images/home-icon.png') }}"
@@ -22,8 +17,19 @@
         />
       </a>
     </header>
-    <main>
-      <p>Welcome to the join family page.</p>
-    </main>
+
+    <div class="login-container">
+      <form>
+        <h2>Register your account</h2>
+        <label for="Username">Email:</label>
+        <input type="username" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <input type="submit" value="Register" />
+      </form>
+    </div>
   </body>
 </html>
+ 

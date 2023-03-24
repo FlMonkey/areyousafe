@@ -7,19 +7,31 @@
       href="{{ url_for('static', filename='main.css') }}"
     />
   </head>
-  <title>Sign in/register</title>
   <body>
     <header>
-      <h1>Sign in/register</h1>
-      <a href="{{ url_for('signin') }}"
-        ><button id="signin">Sign in/register</button></a
-      >
+      <h1>Sign in</h1>
       <a href="{{ url_for('index') }}" class="home-button">
-        <img src="/images/home-icon.png" alt="Home" class="home-icon" />
+        <img
+          src="{{ url_for('static', filename='images/home-icon.png') }}"
+          alt="Home"
+          class="home-icon"
+        />
       </a>
     </header>
-    <main>
-      <p>Welcome to the sign in/register page.</p>
-    </main>
+
+    <div class="login-container">
+      <form>
+        <h2>Log in to your account</h2>
+        <label for="Username">Email:</label>
+        <input type="username" id="username" name="username" required />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <input type="submit" value="Log in" />
+      </form>
+
+      <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>
   </body>
 </html>

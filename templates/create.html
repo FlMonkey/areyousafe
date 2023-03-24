@@ -14,7 +14,11 @@
         ><button id="signin">Sign in/register</button></a
       >
       <a href="{{ url_for('index') }}" class="home-button">
-        <img src="/images/home-icon.png" alt="Home" class="home-icon" />
+        <img
+          src="{{ url_for('static', filename='images/home-icon.png') }}"
+          alt="Home"
+          class="home-icon"
+        />
       </a>
     </header>
     <main>
