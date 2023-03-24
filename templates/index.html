@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<head>
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
-
-  <html>
-    <head>
-      <title>Are you safe</title>
-      <link
-        rel="stylesheet"
-        type="text/css"
-        href="{{ url_for('static', filename='style.css') }}"
-      />
-    </head>
-    <body>
-      <header>
-        <h1>Are you safe</h1>
-        <button id="signin">Sign in/register</button>
-      </header>
-      <main>
-        <div id="buttons">
-          <a href="{{ url_for('join') }}"
-            ><button id="join">Join family</button></a
-          >
-          <a href="{{ url_for('create') }}"
-            ><button id="create">Create family</button></a
-          >
-        </div>
-      </main>
-    </body>
-  </html>
-</head>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Are you safe</h1>
+      <a href="{{ url_for('signin') }}"
+        ><button id="signin">Sign in/register</button></a
+      >
+    </header>
+    <main>
+      <div id="buttons">
+        <a href="{{ url_for('join') }}"
+          ><button id="join">Join family</button></a
+        >
+        <a href="{{ url_for('create') }}"
+          ><button id="create">Create family</button></a
+        >
+      </div>
+    </main>
+  </body>
+</html>
