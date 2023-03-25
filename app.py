@@ -125,6 +125,8 @@ def status(type):
         now.strftime("%H:%M:%S")
         type = type + " at " + now.strftime("%H:%M:%S")
         db.update_status(session['username'], type)
+        db.update_status(session['username'], type)
+        flash("Status updated successfully!")
         return redirect(url_for('index'))
     else:
         return redirect(url_for('signin'))

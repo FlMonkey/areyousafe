@@ -7,6 +7,15 @@
       href="{{ url_for('static', filename='main.css') }}"
     />
   </head>
+  <script>
+    function removeSuccessMessage() {
+      const successMessage = document.getElementById("success-message");
+      if (successMessage) {
+        successMessage.style.display = "none";
+      }
+    }
+    setTimeout(removeSuccessMessage, 3500);
+  </script>
   <body>
     <header>
       <h1>Are you safe</h1>
@@ -34,12 +43,23 @@
           <button id="in-danger" name="danger">In Danger</button>
         </form>
       </div>
-      <form id="custom-status-form" action="{{ url_for('status', type='custom') }}" method="POST">
+      <form
+        id="custom-status-form"
+        action="{{ url_for('status', type='custom') }}"
+        method="POST"
+      >
         <label for="custom-status-input">Custom Status</label>
-        <input id="custom-status-input" type="text" name="status" placeholder="Custom Status">
+        <input
+          id="custom-status-input"
+          type="text"
+          name="status"
+          placeholder="Custom Status"
+        />
         <button type="submit">Submit</button>
-    </form>
-    
+      </form>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div id="success-message" class="success-message">{{ messages[0] }}</div>
+      {% endif %} {% endwith %}
       <p id="status-update-message"></p>
     </main>
   </body>
