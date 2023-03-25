@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import hashlib
+import datetime
 
 passwordhash = hashlib.sha256()
 
@@ -10,12 +11,14 @@ client = MongoClient(
 database = client['areyousafe']
 users = database['users']
 family = database['family']
+messages = database['messages']
 
 
 class Database:
     def __init__(self):
         self.users = users
         self.family = family
+        self.messages = messages
 
     def get_user(self, username):
         return users.find_one({'username': username})
@@ -81,4 +84,6 @@ class Database:
             familyList.append(familymember)
         return familyList
 
-# print(Database.get_family_members_info(Database.get_families_for_user('admin')[0]['_id']))
+    def getFamilyIDbyOwner(self, user):
+        familyID = family.find_one({'familyManager': user})['_id']
+        return familyID
