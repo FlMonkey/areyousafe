@@ -23,7 +23,9 @@ def index():
 @app.route('/family')
 def family():
     if 'is_loggedin' in session:
-        return render_template('family.html')
+        user = db.get_user(session['username'])
+        families = db.get_families_for_user(user)
+        return render_template('family.html', families=families)
     else:
         return redirect(url_for('signin'))
 

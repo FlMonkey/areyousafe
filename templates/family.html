@@ -21,5 +21,26 @@
         />
       </a>
     </header>
+    <main>
+      <div class="family-container">
+        {% for f in families %}
+        <div class="family-box">
+          <div class="family-header">
+            <h2>{{ f.familyName }}</h2>
+          </div>
+          <div class="members-container">
+            <h3>Members</h3>
+            <div class="members-box">
+              {% for member in f.members %}
+              <div class="member">
+                <p>{{ member.username }}: {{ member.status }}</p>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </main>
   </body>
 </html>

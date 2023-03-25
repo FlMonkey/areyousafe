@@ -41,15 +41,27 @@ class Database:
 
     def create_family(self, familyManager, familyName):
         familyManager = self.get_user(familyManager)['username']
-        family.insert_one({'familyManager': familyManager, 'members': [], 'familyName': familyName})
+        family.insert_one({'familyManager': familyManager,
+                          'members': [], 'familyName': familyName})
         return True
-    
+
     def join_family(self, familyID, username):
         try:
             if family.find_one({'_id': ObjectId(familyID)}):
-                family.update_one({'_id': ObjectId(familyID)}, {'$push': {'members': username}})
+                family.update_one({'_id': ObjectId(familyID)}, {
+                                  '$push': {'members': username}})
                 return True
             else:
                 return False
         except:
             return False
+
+    def get_families_for_user(self, user):
+        familyList = []
+        families = self.family.find({'members': user['username']})
+        for family in families:
+            for member in family['members']:
+                familyList.append(self.get_user(member))
+            
+        return familyList
+        
