@@ -213,3 +213,28 @@ button[type="submit"] {
     width: 100%;
     max-width: 120px;
 }
+
+#status-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+#custom-status-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#custom-status-input {
+    margin-bottom: 10px;
+}
+
+#status-update-message {
+    margin-top: 10px;
+    font-weight: bold;
+    color: green;
+}

@@ -24,8 +24,8 @@ def index():
 def family():
     if 'is_loggedin' in session:
         user = db.get_user(session['username'])
-        families = db.get_families_for_user(user)
-        return render_template('family.html', families=families)
+        familyMembers = db.get_family_members_info(db.get_families_for_user('admin')[0]['_id'])
+        return render_template('family.html', families=db.getFamilyList(session['username']), familyMembers=familyMembers)
     else:
         return redirect(url_for('signin'))
 
@@ -103,6 +103,17 @@ def signout():
     session.pop('username', None)
     session.pop('is_loggedin', None)
     return redirect(url_for('signin'))
+
+
+@app.route('/update_status', methods=['POST'])
+def update_status():
+    if 'is_loggedin' in session:
+        status = request.form['status']
+        username = session['username']
+        db.update_status(username, status)
+        return {'result': 'success'}
+    else:
+        return {'result': 'error'}
 
 
 if __name__ == '__main__':
