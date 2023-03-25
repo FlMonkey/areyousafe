@@ -48,6 +48,8 @@ class Database:
     def join_family(self, familyID, username):
         try:
             if family.find_one({'_id': ObjectId(familyID)}):
+                if username in family.find_one({'_id': ObjectId(familyID)})['members']:
+                    return False
                 family.update_one({'_id': ObjectId(familyID)}, {
                                   '$push': {'members': username}})
                 return True
@@ -58,10 +60,22 @@ class Database:
 
     def get_families_for_user(self, user):
         familyList = []
-        families = self.family.find({'members': user['username']})
-        for family in families:
-            for member in family['members']:
-                familyList.append(self.get_user(member))
-            
+        for familymember in family.find({'members': user}):
+            familyList.append(familymember)
         return familyList
-        
+
+    def get_family_members_info(self, familyID):
+        familyMembers = []
+        for member in family.find_one({'_id': ObjectId(familyID)})['members']:
+            member = member['username']
+            st
+            familyMembers.append(self.get_user(member))
+        return familyMembers
+
+
+Database = Database()
+print(Database.get_families_for_user('admin'))
+print(Database.get_family_members_info(
+    Database.get_families_for_user('admin')[0]['_id']))
+
+print(Database.join_family('641edff6da24b5a90cab398d', 'admin'))

@@ -23,23 +23,29 @@
     </header>
     <main>
       <div class="family-container">
-        {% for f in families %}
-        <div class="family-box">
-          <div class="family-header">
-            <h2>{{ f.familyName }}</h2>
-          </div>
-          <div class="members-container">
-            <h3>Members</h3>
-            <div class="members-box">
-              {% for member in f.members %}
-              <div class="member">
-                <p>{{ member.username }}: {{ member.status }}</p>
+        {% if families|length > 0 %}
+          {% for f in families %}
+            <div class="family-box">
+              <div class="family-header">
+                <h2>{{ f.familyName }}</h2>
               </div>
-              {% endfor %}
+              <div class="members-container">
+                <h3>Members</h3>
+                <div class="members-box">
+                  {% for member in f.members %}
+                    <div class="member">
+                      <p>{{ member.username }}: {{ member.status }}</p>
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
             </div>
+          {% endfor %}
+        {% else %}
+          <div class="no-family-message">
+            <p>Sorry, you do not seem to be part of a family, please join one and check back here.</p>
           </div>
-        </div>
-        {% endfor %}
+        {% endif %}
       </div>
     </main>
   </body>
