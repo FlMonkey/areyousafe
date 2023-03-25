@@ -105,15 +105,19 @@ def signout():
     return redirect(url_for('signin'))
 
 
-@app.route('/update_status', methods=['POST'])
-def update_status():
+@app.route('/status/<type>', methods=['POST'])
+def status(type):
     if 'is_loggedin' in session:
-        status = request.form['status']
-        username = session['username']
-        db.update_status(username, status)
-        return {'result': 'success'}
+        if type == "safe":
+            type = "Safe"
+        elif type == "injured":
+            type = "Injured"
+        elif type == "danger":
+            type = "In Danger"
+        db.update_status(session['username'], type)
+        return redirect(url_for('index'))
     else:
-        return {'result': 'error'}
+        return redirect(url_for('signin'))
 
 
 if __name__ == '__main__':

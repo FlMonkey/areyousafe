@@ -10,23 +10,29 @@
   <body>
     <header>
       <h1>Are you safe</h1>
-      <a href="{{ url_for('signout') }}"
-        ><button id="signin">Sign Out</button></a
-      >
+      <a href="{{ url_for('signout') }}">
+        <button id="signin">Sign Out</button>
+      </a>
     </header>
     <main>
       <div id="buttons">
-        <a href="{{ url_for('join') }}"
-          ><button id="join">Join family</button></a
-        >
-        <a href="{{ url_for('create') }}"
-          ><button id="create">Create family</button></a
-        >
+        <a href="{{ url_for('join') }}">
+          <button id="join">Join family</button>
+        </a>
+        <a href="{{ url_for('create') }}">
+          <button id="create">Create family</button>
+        </a>
       </div>
       <div id="status-buttons">
-        <button id="safe">Safe</button>
-        <button id="injured">Injured</button>
-        <button id="in-danger">In Danger</button>
+        <form action="{{ url_for('status', type='safe') }}" method="POST">
+          <button id="safe" name="safe">Safe</button>
+        </form>
+        <form action="{{ url_for('status', type='injured') }}" method="POST">
+          <button id="injured" name="injured">Injured</button>
+        </form>
+        <form action="{{ url_for('status', type='danger') }}" method="POST">
+          <button id="in-danger" name="danger">In Danger</button>
+        </form>
       </div>
       <form id="custom-status-form">
         <label for="custom-status-input">Custom Status</label>
