@@ -24,7 +24,8 @@ def index():
 def family():
     if 'is_loggedin' in session:
         user = db.get_user(session['username'])
-        familyMembers = db.get_family_members_info(db.get_families_for_user('admin')[0]['_id'])
+        familyMembers = db.get_family_members_info(
+            db.get_families_for_user('admin')[0]['_id'])
         return render_template('family.html', families=db.getFamilyList(session['username']), familyMembers=familyMembers)
     else:
         return redirect(url_for('signin'))
@@ -114,6 +115,8 @@ def status(type):
             type = "Injured"
         elif type == "danger":
             type = "In Danger"
+        elif type == "custom":
+            type = request.form['status']
         db.update_status(session['username'], type)
         return redirect(url_for('index'))
     else:

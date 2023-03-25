@@ -34,15 +34,12 @@
           <button id="in-danger" name="danger">In Danger</button>
         </form>
       </div>
-      <form id="custom-status-form">
+      <form id="custom-status-form" action="{{ url_for('status', type='custom') }}" method="POST">
         <label for="custom-status-input">Custom Status</label>
-        <input
-          id="custom-status-input"
-          type="text"
-          placeholder="Custom Status"
-        />
+        <input id="custom-status-input" type="text" name="status" placeholder="Custom Status">
         <button type="submit">Submit</button>
-      </form>
+    </form>
+    
       <p id="status-update-message"></p>
     </main>
   </body>
