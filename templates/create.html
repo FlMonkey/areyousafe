@@ -23,7 +23,7 @@
     </header>
     <main>
       {% if joinID != False %}
-        <h2>Please write down the following join code for your family: {{ joinID }} </h2>
+        <h2>Success!! Please write down the following join code for your family: {{ joinID }} </h2>
       {% endif %}
 
       <form action="{{ url_for('create') }}" method="POST">

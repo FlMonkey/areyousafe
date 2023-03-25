@@ -29,7 +29,7 @@ def family():
     if 'is_loggedin' in session:
         user = db.get_user(session['username'])
         familyMembers = db.get_family_members_info(
-            db.get_families_for_user('admin')[0]['_id'])
+            db.get_families_for_user(session['username'])[0]['_id'])
         return render_template('family.html', families=db.getFamilyList(session['username']), familyMembers=familyMembers)
     else:
         return redirect(url_for('signin'))
