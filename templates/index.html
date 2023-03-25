@@ -6,16 +6,16 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='main.css') }}"
     />
-  </head>
-  <script>
-    function removeSuccessMessage() {
-      const successMessage = document.getElementById("success-message");
-      if (successMessage) {
-        successMessage.style.display = "none";
+    <script>
+      function removeSuccessMessage() {
+        const successMessage = document.getElementById("success-message");
+        if (successMessage) {
+          successMessage.style.display = "none";
+        }
       }
-    }
-    setTimeout(removeSuccessMessage, 3500);
-  </script>
+      setTimeout(removeSuccessMessage, 3500);
+    </script>
+  </head>
   <body>
     <header>
       <h1>Are you safe</h1>
