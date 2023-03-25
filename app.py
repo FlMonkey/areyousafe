@@ -121,6 +121,8 @@ def status(type):
             type = "In Danger"
         elif type == "custom":
             type = request.form['status']
+        else:
+            return redirect(url_for('index'))
         now = datetime.now()
         now.strftime("%H:%M:%S")
         type = type + " at " + now.strftime("%H:%M:%S")
@@ -129,6 +131,25 @@ def status(type):
     else:
         return redirect(url_for('signin'))
 
+@app.route('/messages', methods=['GET', 'POST'])
+def load_messages():
+    if 'is_loggedin' in session:
+        messages = db.get_messages(session['username'])
+        return render_template('messages.html', messages=messages)
+    else:
+        return redirect(url_for('signin'))
+
+@app.route('/send_message', methods=['GET', 'POST'])
+def send_message():
+    if 'is_loggedin' in session:
+        if request.method == 'POST':
+            message = request.form['message']
+            db.send_message(session['username'], message, request.form['recipient'])
+            return redirect(url_for('load_messages'))
+        else:
+            return redirect(url_for('index'))
+    else:
+        return redirect(url_for('signin'))
 
 if __name__ == '__main__':
     app.run(debug=True)

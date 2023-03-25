@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import hashlib
+import datetime
 
 passwordhash = hashlib.sha256()
 
@@ -10,6 +11,7 @@ client = MongoClient(
 database = client['areyousafe']
 users = database['users']
 family = database['family']
+messages = database['messages']
 
 
 class Database:
@@ -82,3 +84,13 @@ class Database:
         return familyList
 
 # print(Database.get_family_members_info(Database.get_families_for_user('admin')[0]['_id']))
+
+    def send_message(self, username, message, to):
+        messages.insert_one({'sender': username, 'message': message, 'time': datetime.datetime.now(), 'to': to})
+
+    def get_messages(self, username):
+        messageList = []
+        for message in messages.find():
+            if message['to'] == username:
+                messageList.append(message)
+        return messageList

@@ -238,3 +238,171 @@ button[type="submit"] {
     font-weight: bold;
     color: green;
 }
+
+body {
+    background-color: #e1e0e0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+button {
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#signin {
+    margin-right: 20px;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 100px);
+}
+
+.home-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+    z-index: 1000;
+}
+
+.home-icon {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #444;
+}
+
+.messages-container {
+    flex-grow: 1;
+}
+
+.messages {
+    margin-top: 20px;
+}
+
+.message {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.message-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.message-header p {
+    margin: 0;
+    font-size: 16px;
+    color: #666;
+}
+
+.messages p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    header {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #signin-container {
+        margin-bottom: 20px;
+    }
+
+    .home-container {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .input-container {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .messages-container {
+        margin-right: 20px;
+    }
+}
