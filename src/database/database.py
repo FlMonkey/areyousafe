@@ -53,8 +53,8 @@ class Database:
             if family.find_one({'_id': ObjectId(familyID)}):
                 if username in family.find_one({'_id': ObjectId(familyID)})['members']:
                     return False
-                family.update_one({'_id': ObjectId(familyID)}, {
-                                  '$push': {'members': username}})
+                else:
+                    family.update_one({'_id': ObjectId(familyID)}, {'$push': {'members': username}})
                 return True
             else:
                 return False
@@ -87,3 +87,8 @@ class Database:
     def getFamilyIDbyOwner(self, user):
         familyID = family.find_one({'familyManager': user})['_id']
         return familyID
+
+    def getFamilyMembers(self, familyID):
+        for familymember in family.find({'_id': ObjectId(familyID)}):
+            familyMembers = familymember['members']
+        return familyMembers
