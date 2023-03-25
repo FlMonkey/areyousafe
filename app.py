@@ -20,6 +20,14 @@ def index():
         return redirect(url_for('signin'))
 
 
+@app.route('/family')
+def family():
+    if 'is_loggedin' in session:
+        return render_template('family.html')
+    else:
+        return redirect(url_for('signin'))
+
+
 @app.route('/join', methods=['GET', 'POST'])
 def join():
     if 'is_loggedin' in session:

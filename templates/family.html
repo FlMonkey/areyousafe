@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='main.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Family Page</h1>
+      <a href="{{ url_for('signout') }}"
+        ><button id="signin">Sign Out</button></a
+      >
+      <a href="{{ url_for('index') }}" class="home-button">
+        <img
+          src="{{ url_for('static', filename='images/home-icon.png') }}"
+          alt="Home"
+          class="home-icon"
+        />
+      </a>
+    </header>
+  </body>
+</html>
