@@ -57,7 +57,7 @@ def create():
         if request.method == 'POST':
             familyManager = session['username']
             familyName = request.form['family-name']
-            if db.create_family(familyManager, familyName):
+            if db.create_family(familyManager, familyName, session['username']):
                 return render_template('create.html', joinID=db.getFamilyIDbyOwner(session['username']))
             else:
                 return redirect(url_for('create'))

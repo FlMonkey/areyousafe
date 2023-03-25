@@ -42,10 +42,10 @@ class Database:
             if user['password'] == hashedPass:
                 return True
 
-    def create_family(self, familyManager, familyName):
+    def create_family(self, familyManager, familyName, familycreater):
         familyManager = self.get_user(familyManager)['username']
         family.insert_one({'familyManager': familyManager,
-                          'members': [], 'familyName': familyName})
+                          'members': [familycreater], 'familyName': familyName})
         return True
 
     def join_family(self, familyID, username):
