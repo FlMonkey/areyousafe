@@ -83,3 +83,7 @@ class Database:
         for familymember in family.find({'members': user}):
             familyList.append(familymember)
         return familyList
+
+    def getFamilyIDbyOwner(self, user):
+        familyID = family.find_one({'familyManager': user})['_id']
+        return familyID

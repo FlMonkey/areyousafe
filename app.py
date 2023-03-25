@@ -58,11 +58,11 @@ def create():
             familyManager = session['username']
             familyName = request.form['family-name']
             if db.create_family(familyManager, familyName):
-                return redirect(url_for('index'))
+                return render_template('create.html', joinID=db.getFamilyIDbyOwner(session['username']))
             else:
                 return redirect(url_for('create'))
 
-        return render_template('create.html')
+        return render_template('create.html', joinID=False)
     else:
         return redirect(url_for('signin'))
 
