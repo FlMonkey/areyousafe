@@ -54,7 +54,8 @@ class Database:
                 if username in family.find_one({'_id': ObjectId(familyID)})['members']:
                     return False
                 else:
-                    family.update_one({'_id': ObjectId(familyID)}, {'$push': {'members': username}})
+                    family.update_one({'_id': ObjectId(familyID)}, {
+                                      '$push': {'members': username}})
                 return True
             else:
                 return False

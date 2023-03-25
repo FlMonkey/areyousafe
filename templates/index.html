@@ -23,6 +23,7 @@
         <button id="signin">Sign Out</button>
       </a>
     </header>
+
     <main>
       <div id="buttons">
         <a href="{{ url_for('join') }}">
@@ -31,7 +32,12 @@
         <a href="{{ url_for('create') }}">
           <button id="create">Create family</button>
         </a>
+        <a href="{{ url_for('family') }}">
+          <button id="family">View families</button>
+        </a>
       </div>
+      <div id="light-grey-bar"></div>
+      <h2 id="enter-status-title">Enter status</h2>
       <div id="status-buttons">
         <form action="{{ url_for('status', type='safe') }}" method="POST">
           <button id="safe" name="safe">Safe</button>
@@ -48,7 +54,6 @@
         action="{{ url_for('status', type='custom') }}"
         method="POST"
       >
-        <label for="custom-status-input">Custom Status</label>
         <input
           id="custom-status-input"
           type="text"

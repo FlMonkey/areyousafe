@@ -42,12 +42,19 @@ main {
 #buttons {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: top;
     justify-content: center;
+    height: 10px;
 }
 
 #join {
     margin-right: 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+#family {
+    margin-left: 20px;
     background-color: #333;
     color: #fff;
 }
@@ -76,9 +83,6 @@ main {
     height: 20px;
     filter: invert(1);
 }
-
-
-/* Login styles */
 
 .login-container {
     max-width: 500px;
@@ -241,4 +245,26 @@ button[type="submit"] {
 
 .success-message {
     color: green;
+}
+
+#light-grey-bar {
+    width: 100%;
+    height: 1px;
+    background-color: rgb(123, 123, 123);
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+#enter-status-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#custom-status-form label {
+    margin-bottom: 5px;
+}
+
+#custom-status-input {
+    margin-bottom: 5px;
 }

@@ -15,11 +15,13 @@ app = Flask(__name__)
 
 app.config['SECRET_KEY'] = 'IloveMonkeys'
 
+
 def get_family_members_info(family_id):
     return db.get_family_members_info(family_id)
 
 
 app.add_template_global(get_family_members_info, 'get_family_members_info')
+
 
 @app.route('/')
 def index():
