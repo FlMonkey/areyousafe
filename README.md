@@ -10,3 +10,11 @@ My solution to this issue is to create a user friendly, minimalistic website in 
 ## Flowchart:
 
 ![Blank diagram-2](https://user-images.githubusercontent.com/75172047/226839995-26ac3c1a-7270-4f86-b5f0-2b6194084af2.png)
+
+## Challenges that I encountered:
+
+![image](https://user-images.githubusercontent.com/75172047/229055018-c46bdf1b-68e8-4132-81f0-f6cc4a58b9d3.png)
+
+The part of the code that I found chalanging was setting up the MongoDB database. This wasn't inherintly dificult but it was something that I have never done before so it was a wonderfull learning experience for me.  
+<img width="974" alt="Screenshot 2023-03-31 at 09 40 04" src="https://user-images.githubusercontent.com/75172047/229055807-b00b22d7-289a-4ac8-955d-b6311eb54516.png">
+here is an immage of the database interface
