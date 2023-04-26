@@ -15,7 +15,7 @@ My solution to this issue is to create a user friendly, minimalistic website in 
 
 ![image](https://user-images.githubusercontent.com/75172047/229055018-c46bdf1b-68e8-4132-81f0-f6cc4a58b9d3.png)
 
-The part of the code that I found chalanging was setting up the MongoDB database. This wasn't inherintly dificult but it was something that I have never done before so it was a wonderfull learning experience for me. As well as learning about databases I also learned about classes which is something i've been wanting to learn for a while. 
+The part of the code that I found chalanging was setting up the MongoDB database. This wasn't inherintly dificult but it was something that I have never done before so it was a wonderfull learning experience for me. As well as learning about databases I also learned about classes which is something i've been wanting to learn for a while. To be specific about what the code above does, The get_user function searches through the database and sees if a user with the inputed username exists. The register function works as so: the first line is in charge of hashing the password that the user inputed in SHA256. The second line check if that user name already exists inside of the data base. If it doesn't exist then it creates a new user with their user name, password and it initializes their status. 
 
 here is an image of the database interface
 
