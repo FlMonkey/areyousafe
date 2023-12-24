@@ -13,7 +13,7 @@ db = Database()
 
 app = Flask(__name__)
 
-app.config['SECRET_KEY'] = 'IloveMonkeys'
+app.config['SECRET_KEY'] = 'ENTERSECRETKEY'
 
 
 def get_family_members_info(family_id):
