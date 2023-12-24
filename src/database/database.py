@@ -6,7 +6,7 @@ import datetime
 passwordhash = hashlib.sha256()
 
 client = MongoClient(
-    'mongodb+srv://monkey:DI8sSfUPHVGFgsoH@areyousafe.yem7rhp.mongodb.net/?retryWrites=true&w=majority')
+    'ADDMONGODBCLIENT')
 
 database = client['areyousafe']
 users = database['users']
